@@ -1,0 +1,56 @@
+package main;
+
+public class Ex1 {
+
+	public static void main(String[] args) {
+
+		// 인터페이스는 불완전한 구조체이므로 인스턴스 생성 불가
+//		Calc calc = new Calc();
+		
+		// 자식클래스로 인스턴스를 생성할 것
+		Calculator calculator = new Calculator();
+		
+		int result1 = calculator.add(10, 5);
+		System.out.println(result1);
+		int result2 = calculator.substract(10, 5);
+		System.out.println(result2);
+		int result3 = calculator.times(10, 5);
+		System.out.println(result3);
+		int result4 = calculator.divide(10, 5);
+		System.out.println(result4);
+		
+	}
+
+}
+
+// 계산기 클래스
+// Class -> Class (extends)
+// Class -> Interface (implements)
+class Calculator implements Calc {
+
+	@Override
+	public int add(int num1, int num2) {
+		return num1 + num2;
+	}
+
+	@Override
+	public int substract(int num1, int num2) {
+		return num1 - num2;
+	}
+
+	@Override
+	public int times(int num1, int num2) {
+		return num1 * num2;
+
+	}
+
+	@Override
+	public int divide(int num1, int num2) {
+		return num1 / num2;
+	}
+	
+	public void showInfo() {
+		System.out.println("계산기 클래스 입니다");
+	}
+	
+}
